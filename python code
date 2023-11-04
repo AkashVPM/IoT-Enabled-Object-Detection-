@@ -1,0 +1,15 @@
+import serial
+
+# Establish serial connection
+ser = serial.Serial('COM8', 9600)
+
+# Read serial data and print it to the console
+while True:
+    try:
+        serial_data = ser.readline().decode().strip()
+        print(serial_data)
+    except KeyboardInterrupt:
+        break
+
+# Close serial connection
+ser.close()
