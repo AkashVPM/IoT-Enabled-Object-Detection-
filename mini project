@@ -1,0 +1,119 @@
+// our project: IoT based object presence in storage unit //
+
+int irsensor1 =2;
+int irsensor2= 4;              //port 3 not working properly //
+int irsensor3 =5;
+int irsensor4 =6; 
+int irsensor5 =7;
+int irsensor6 =9;             // port 8 not working properly //
+int irsensor7= 10;
+int irsensor8 =11;
+int irsensor9 =12; 
+int irsensor10 =52;          // we dont want to do for port 13 , so we go to port 52 //
+int led1 = 22;
+int led2 = 24; 
+int led3 = 26;
+int led4 = 28;
+int led5 = 30;
+int led6 = 32;
+int led7 = 34 ; 
+int led8 = 36;
+int led9 = 38;
+int led10 =40 ;
+
+
+
+void setup()
+{
+       
+       pinMode(irsensor2 , INPUT);
+       pinMode(irsensor3 , INPUT);
+       pinMode(irsensor4 , INPUT);
+       pinMode(irsensor5 , INPUT); 
+       pinMode(irsensor6 , INPUT); 
+       pinMode(irsensor7 , INPUT);
+       pinMode(irsensor8 , INPUT);
+       pinMode(irsensor9 , INPUT);
+     
+       
+       pinMode(led2, OUTPUT);
+       pinMode(led3, OUTPUT);
+       pinMode(led4, OUTPUT);
+       pinMode(led5, OUTPUT);
+       pinMode(led6, OUTPUT); 
+       pinMode(led7, OUTPUT);
+       pinMode(led8, OUTPUT);
+       pinMode(led9, OUTPUT);
+     
+     
+       
+      Serial.begin(9600);
+
+       
+}
+
+void loop()
+{
+       
+       int readsen2 = digitalRead( irsensor2 );
+       int readsen3 = digitalRead( irsensor3 );
+       int readsen4 = digitalRead( irsensor4 );
+       int readsen5 = digitalRead( irsensor5 );
+       int readsen6 = digitalRead( irsensor6 );
+       int readsen7 = digitalRead( irsensor7 );
+       int readsen8 = digitalRead( irsensor8 );
+       int readsen9 = digitalRead( irsensor9 );
+      
+       
+       
+digitalWrite(led2,(readsen2 == HIGH ? LOW : HIGH));       // thing in box 2
+
+digitalWrite(led3,(readsen3 == HIGH ? LOW : HIGH));       // thing in box 3
+
+
+digitalWrite(led4,(readsen4 == HIGH ? LOW : HIGH));       // thing in box 4
+
+
+digitalWrite(led5,(readsen5 == HIGH ? LOW : HIGH));       // thing in box 5
+
+
+digitalWrite(led6,(readsen6 == HIGH ? LOW : HIGH));      // thing in box 6
+
+
+digitalWrite(led7,(readsen7 == HIGH ? LOW : HIGH));      // thing in box 7
+
+
+digitalWrite(led8,(readsen8 == HIGH ? LOW : HIGH));      // thing in box 8
+
+
+digitalWrite(led9,(readsen9 == HIGH ? LOW : HIGH));      // thing in box 9
+
+
+  
+     
+      Serial.print(readsen2);
+      Serial.print(",");
+    
+      Serial.print(readsen3);
+      Serial.print(",");
+       
+      Serial.print(readsen4);
+      Serial.print(",");
+      
+      Serial.print(readsen5);
+      Serial.print(",");
+     
+      Serial.print(readsen6);
+      Serial.print(",");
+   
+      Serial.print(readsen7);
+      Serial.print(",");
+     
+      Serial.print(readsen8);
+      Serial.print(",");
+      
+      Serial.print(readsen9);
+      Serial.print(",");
+    
+}
+      
